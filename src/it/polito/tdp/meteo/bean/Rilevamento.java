@@ -7,12 +7,18 @@ public class Rilevamento {
 	private String localita;
 	private Date data;
 	private int umidita;
+	private double media;
 
 	public Rilevamento(String localita, Date data, int umidita) {
 		super();
 		this.localita = localita;
 		this.data = data;
 		this.umidita = umidita;
+	}
+
+	public Rilevamento(String localita, double media) {
+		this.localita=localita;
+		this.media=media;
 	}
 
 	public String getLocalita() {
@@ -47,6 +53,10 @@ public class Rilevamento {
 	@Override
 	public String toString() {
 		return String.valueOf(umidita);
+	}
+
+	public double getMediaUmidita() {
+		return media;
 	}
 
 }

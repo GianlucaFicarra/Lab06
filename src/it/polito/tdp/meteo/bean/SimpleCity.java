@@ -3,7 +3,7 @@ package it.polito.tdp.meteo.bean;
 public class SimpleCity {
 
 	private String nome;
-	private int costo;
+	private int costo;//costo dal database ugule all'umidita
 	
 	public SimpleCity(String nome) {
 		this.nome = nome;

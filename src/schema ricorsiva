@@ -1,0 +1,67 @@
+SCHEMA RICORSIVA:
+
+Le informazioni presenti nella base dati fornita sono relative alle città di Torino, Milano e Genova, e coprono tutto e solo l’anno 2013
+Risolvere il seguente problema di ottimizzazione mediante un algoritmo ricorsivo:
+Sapendo che nel database sono presenti 3 città, supponiamo che un tecnico debba compiere delle analisi 
+tecniche della durata di un giorno in ciascuna citta. Le analisi hanno un costo per ogni giornata, 
+determinato dalla somma di due contributi: un fattore costante (di valore 100) ogniqualvolta il tecnico 
+si deve spostare da una città ad un’altra in due giorni successivi, ed un fattore variabile pari al valore 
+numerico dell’umidità della città nel giorno considerato. Si trovi la sequenza delle città da visitare nei 
+primi 15 giorni del mese selezionato, tale da minimizzare il costo complessivo rispettando i seguenti vincoli:
+
+- Nei primi 15 giorni del mese, tutte le città devono essere visitate almeno una volta
+- In nessuna città si possono trascorrere più di 6 giornate (anche non consecutive)
+- Scelta una città, il tecnico non si può spostare prima di aver trascorso 3 giorni consecutivi.
+
+
+
+DOMANDE:
+
+1) Cosa rappresenta il "livello" nel mio algoritmo ricorsivo?
+-la giornata corrente del mio mese (max 15 giorni)
+
+2) Com'è fatta una soluzione parziale?
+-sequenza delle città che ho visitato, aumentando di livello una città deve essere ripetuta consecutivamente 
+per 3 liv, dopo dei quali aggiungere una nuova citta:
+   (es) Torino T Milano M Genova G
+   liv0-- M
+   liv1-- MM
+   liv2-- MMM
+   liv3-- MMMT
+   devo restare minimo per tre liv in una città
+ 
+3) Come faccio a riconoscere se una soluzione parziale è anche completa?
+- se sono arrivato al liv15 la soluzione parziale è anche completa 
+
+4) Data una soluzione parziale, come faccio a sapere se è valida o se non è valida?(nb. magari non posso)
+- soluz parziale affinche sia valida la  citta deve essere visita oer un minimo di 3 giorni ed un massimo di 6 giornate(ovvero liv)
+
+5)Data una soluzione completa, come faccio a sapere se è valida o se non è valida?
+- se raggiungo il liv 15, la soluz non è valida se per ogni città sono stato al massimo 6 giorni(anche non consegutivi)
+
+6) Qual è la regola per generare tutte le soluzioni del livello+1 a partire da una soluzione parziale del livello corrente?
+- aggiungere una nuova città alla lista delle cità già visitate
+
+7) Qual è la struttura dati per memorizzare una soluzione (parziale o completa)?
+- non uso hashset perche questo tipo di lista non permette duplicati, uso una linkedlist o arraylist
+
+8) Qual è la struttura dati per memorizzare lo stato della ricerca (della ricorsione)?
+-utilizzo sempre una lista di citta
+
+
+-9)Sulla base dello schema presentato in Fig. 1, completare i blocchi (alcuni potrebbero essere non necessari)
+o A – Condizione di terminazione
+      se liv raggiunge il valore 15
+      
+o B – Generazione di una nuova soluzione
+      aggiungo nuova cittarispettando i vincoli
+      
+o C – Filtro sulla chiamata ricorsiva
+      filtro è il numero i volte che la città viene visitata consecutivamente
+      ricorsiva è il metodo per avviare la ricerca in modo annidato
+      
+o D – Backtracking
+      elimino la soluz corrente per esplorare un nuovo ramo 
+      
+o E – Sequenza di istruzioni da eseguire sempre
+      scelgo una stampa per il controllo

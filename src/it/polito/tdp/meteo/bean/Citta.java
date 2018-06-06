@@ -1,15 +1,19 @@
 package it.polito.tdp.meteo.bean;
 
+import java.util.LinkedList;
 import java.util.List;
+
+//citta torino milano genova
 
 public class Citta {
 
 	private String nome;
-	private List<Rilevamento> rilevamenti;
+	private List<Rilevamento> rilevamenti;//di tutto l anno
 	private int counter = 0;
 	
 	public Citta(String nome) {
 		this.nome = nome;
+		rilevamenti=new LinkedList<Rilevamento>();
 	}
 	
 	public Citta(String nome, List<Rilevamento> rilevamenti) {
@@ -44,7 +48,16 @@ public class Citta {
 	public void increaseCounter() {
 		this.counter += 1;
 	}
+	
+	public void decreaseCounter() {
+		this.counter -= 1;
+	}
 
+	public void addNewRilevamento(Rilevamento r) {
+		rilevamenti.add(r);
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,7 +66,7 @@ public class Citta {
 		return result;
 	}
 
-	@Override
+	@Override//due citta uguali se hanno stesso nome
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
