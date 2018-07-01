@@ -45,6 +45,11 @@ public class Citta {
 		this.counter += 1;
 	}
 
+
+	public void decreaseCounter() {
+		this.counter -= 1;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

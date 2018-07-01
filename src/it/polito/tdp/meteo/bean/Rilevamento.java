@@ -9,7 +9,6 @@ public class Rilevamento {
 	private int umidita;
 
 	public Rilevamento(String localita, Date data, int umidita) {
-		super();
 		this.localita = localita;
 		this.data = data;
 		this.umidita = umidita;

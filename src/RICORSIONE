@@ -1,0 +1,19 @@
+RICORSIONE:
+
+1)soluzione: sequenza (list) di 15 citta, dove elementi lista sono citta visitate una per giorno
+
+2)lecita se rispetta regole sulla permanenza min e max
+
+3)ad ogni livello ricorsione corrisponde un giorno del calendario
+
+4)condizione terminae è liv=15
+
+5)genero le soluz parziali prvando ag aggiungere tutte le citta, considerando i vincoli:
+  citta aggiunga non sia la 7 complessiva
+  se cambio città in quella prima devo esserci stato almeno 3 giorni
+  tutte citta visitate almeno una volta, ma se rispetto il vincolo dei 6 giorni allora devo risettare anche questo
+  
+6)se soluzione completa devo calcolare il costo(+umidita +100*num spostamenti)
+  confrontare il costo con quella migliore trovata fin ora
+  se migliore la aggiorno
+  continuo la ricerca per valutare ogni soluzione
